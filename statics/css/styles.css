@@ -1,0 +1,33 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #ff5e5e;
+}
+
+.card {
+    border: none;
+}
+
+.card-img-top {
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    background-color: #333;
+    border: none;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #444;
+}
