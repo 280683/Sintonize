@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,47 +10,30 @@
 </head>
 <body class="bg-dark text-light">
     <div class="container mt-5">
+        <!-- Título e botão de adicionar perfil -->
         <div class="text-center mb-4">
             <h1 class="display-4">Sintonize</h1>
             <h2 class="mb-4">Escolha seu perfil</h2>
-
             <a href="{% url 'adicionar_perfil' %}" class="btn btn-success mb-4">Adicionar Perfil</a>
         </div>
 
         <div class="row justify-content-center">
-
+            {% for perfil in perfis %}
             <div class="col-md-4">
                 <div class="card mb-4 bg-dark text-light">
                     <div class="card-body">
-                        <h5 class="card-title">Perfil 1</h5>
-                        <a href="/login/" class="btn btn-primary">Acessar</a>
+                        <h5 class="card-title">{{ perfil.nome }}</h5>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/login/'">Acessar</button>
+                            <a href="{% url 'editar_perfil' perfil.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'excluir_perfil' perfil.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4 bg-dark text-light">
-                    <div class="card-body">
-                        <h5 class="card-title">Perfil 2</h5>
-                        <a href="/login/" class="btn btn-primary">Acessar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 bg-dark text-light">
-                    <div class="card-body">
-                        <h5 class="card-title">Perfil 3</h5>
-                        <a href="/login/" class="btn btn-primary">Acessar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 bg-dark text-light">
-                    <div class="card-body">
-                        <h5 class="card-title">Perfil 4</h5>
-                        <a href="/login/" class="btn btn-primary">Acessar</a>
-                    </div>
-                </div>
-            </div>
+            {% empty %}
+            <p class="text-center">Não há perfis disponíveis.</p>
+            {% endfor %}
         </div>
     </div>
 

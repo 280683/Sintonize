@@ -19,7 +19,7 @@
             <div class="card bg-dark text-light">
                 <div class="card-body">
                     <h5 class="card-title text-center">Cadastro</h5>
-                    <form id="cadastroForm" method="POST" action="{% url 'cadastro' %}">
+                    <form method="POST">
                         {% csrf_token %}
                         <div class="mb-3">
                             <input type="text" name="username" class="form-control" placeholder="Nome de usuário" required>
@@ -42,14 +42,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('cadastroForm').onsubmit = function(event) {
-        event.preventDefault();  // Evita o comportamento padrão de recarregar a página
-        // Simula o envio bem-sucedido e redireciona para a página de perfil
-        window.location.href = "/perfil/";
-    };
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
